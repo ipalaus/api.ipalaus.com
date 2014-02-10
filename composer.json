@@ -5,6 +5,7 @@
   "license": "MIT",
   "require": {
     "php": ">=5.4.0",
+    "nesbot/carbon": "1.*",
     "laravel/framework": "4.1.*",
     "league/fractal": "0.7.*"
   },

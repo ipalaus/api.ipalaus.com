@@ -24,11 +24,16 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
+$env = $app->detectEnvironment(function()
+{
+    $envFile = __DIR__.'/environment.php';
 
-	'local' => array('your-machine-name'),
+    if (file_exists($envFile)) {
+        return require $envFile;
+    }
 
-));
+    return 'production';
+});
 
 /*
 |--------------------------------------------------------------------------

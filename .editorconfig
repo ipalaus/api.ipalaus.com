@@ -19,3 +19,7 @@ indent_size = 4
 
 [**.php]
 indent_size = 4
+
+[app/config/**.php]
+indent_style = tab
+indent_size = 4

@@ -107,7 +107,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
-        'Isern\Storage\StorageServiceProvider',
+		'Isern\Storage\StorageServiceProvider',
 
 	),
 

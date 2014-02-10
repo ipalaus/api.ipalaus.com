@@ -31,10 +31,10 @@ class StorageServiceProvider extends ServiceProvider
      */
     protected function registerTags()
     {
-        // $this->app->bind(
-        //     'Isern\Storage\Tag\TagRepositoryInterface',
-        //     'Isern\Storage\Tag\EloquentTagRepository'
-        // );
+        $this->app->bind(
+            'Isern\Storage\Tag\TagRepositoryInterface',
+            'Isern\Storage\Tag\EloquentTagRepository'
+        );
     }
 
 }

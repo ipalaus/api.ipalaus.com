@@ -21,15 +21,29 @@ class StorageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerTags();
+        $this->registerCategory();
+        $this->registerTag();
     }
 
     /**
-     * Register the tags bind.
+     * Register the tag bind.
      *
      * @return void
      */
-    protected function registerTags()
+    protected function registerCategory()
+    {
+        $this->app->bind(
+            'Isern\Storage\Category\CategoryRepositoryInterface',
+            'Isern\Storage\Category\EloquentCategoryRepository'
+        );
+    }
+
+    /**
+     * Register the tag bind.
+     *
+     * @return void
+     */
+    protected function registerTag()
     {
         $this->app->bind(
             'Isern\Storage\Tag\TagRepositoryInterface',

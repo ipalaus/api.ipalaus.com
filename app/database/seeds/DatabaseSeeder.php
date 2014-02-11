@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             exit('Easy boy, easy... do not truncate the tables on production please.');
         }
 
+        $this->call('CategoriesTableSeeder');
         $this->call('TagsTableSeeder');
     }
 

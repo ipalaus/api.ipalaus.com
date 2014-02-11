@@ -7,6 +7,6 @@ interface TagRepositoryInterface
 
     public function create(TagEntity $entity);
 
-    public function all();
+    public function getAll();
 
 }

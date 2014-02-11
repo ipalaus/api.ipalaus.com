@@ -30,22 +30,43 @@ class EloquentTagRepository implements TagRepositoryInterface
     /**
      * Get all of the Tags.
      *
-     * @param  array $columns
-     *
      * @return \Illuminate\Support\Collection
      */
-    public function all()
+    public function getAll()
     {
         $items = new Collection;
 
         $tags = Tag::orderBy('name', 'asc')->get();
 
-        foreach ($tags as $tag) {
-            $entity = (new TagEntity)->setRawAttributes($item)->setExists(true);
+        foreach ($tags as $item) {
+            $entity = (new TagEntity)->setRawAttributes($item);
+            $entity->setExists(true);
+
             $items[] = $entity;
         }
 
         return $items;
+    }
+
+    /**
+     * Get a tag by it's slug.
+     *
+     * @param  string $slug
+     *
+     * @return \Isern\Storage\Tag\TagEntity|null
+     */
+    public function getBySlug($slug)
+    {
+        $item = Tag::where('slug', $slug)->first();
+
+        if ( ! is_null($item)) {
+            $entity = (new TagEntity)->setRawAttributes($item);
+            $entity->setExists(true);
+
+            return $entity;
+        }
+
+        return null;
     }
 
 }

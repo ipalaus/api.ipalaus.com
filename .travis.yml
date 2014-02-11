@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - hhvm
+
+before_script:
+  - composer self-update
+  - composer require satooshi/php-coveralls:dev-master --prefer-source --no-interaction --dev
+
+script: phpunit -d memory_limit=1024M -c phpunit.xml.dist --coverage-text
+
+after_script:
+  - php vendor/bin/coveralls -v

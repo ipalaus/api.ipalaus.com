@@ -22,6 +22,7 @@ class StorageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerCategory();
+        $this->registerPost();
         $this->registerTag();
     }
 
@@ -35,6 +36,19 @@ class StorageServiceProvider extends ServiceProvider
         $this->app->bind(
             'Isern\Storage\Category\CategoryRepositoryInterface',
             'Isern\Storage\Category\EloquentCategoryRepository'
+        );
+    }
+
+    /**
+     * Register the post bind.
+     *
+     * @return void
+     */
+    protected function registerPost()
+    {
+        $this->app->bind(
+            'Isern\Storage\Post\PostRepositoryInterface',
+            'Isern\Storage\Post\EloquentPostRepository'
         );
     }
 

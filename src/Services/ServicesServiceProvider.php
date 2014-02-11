@@ -22,6 +22,7 @@ class ServicesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerCategory();
+        $this->registerPost();
         $this->registerTag();
     }
 
@@ -34,6 +35,19 @@ class ServicesServiceProvider extends ServiceProvider
     {
         $this->app->bindShared('Isern\Services\CategoryService', function($app) {
             $service = $app->build('Isern\Services\CategoryService');
+            return $service;
+        });
+    }
+
+    /**
+     * Register the post service.
+     *
+     * @return void
+     */
+    protected function registerPost()
+    {
+        $this->app->bindShared('Isern\Services\PostService', function($app) {
+            $service = $app->build('Isern\Services\PostService');
             return $service;
         });
     }

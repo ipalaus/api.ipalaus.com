@@ -24,7 +24,8 @@
       "app/database/seeds"
     ],
     "psr-4": {
-      "Isern\\": "src/"
+      "Isern\\": "src/",
+      "Isern\\Tests\\": "tests/unit/"
     }
   },
   "scripts": {
